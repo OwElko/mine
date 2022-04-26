@@ -1,1 +1,20 @@
-// Nope, nothing here. Just a big long list of checkboxes and radio buttons.... You see, what happens is, let's say you click on the boulder, the input for the boulder is checked but the input for the pickaxe isn't. So CSS check to see if the checkbox is checked and the other checkbox is checked to check if the rule should apply. If the checkbox of the pickaxe is not checked then the check shows that the checkbox checked state of the previous checkbox isnt checked and thus the current checked box doesnt apply the checked checkbox state. Got that? Great. Me neither.
+(function() {
+  
+  var slideContainer = $('.slide-container');
+  
+  slideContainer.slick();
+  
+  $('.clash-card__image img').hide();
+  $('.slick-active').find('.clash-card img').fadeIn(200);
+  
+  // On before slide change
+  slideContainer.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+    $('.slick-active').find('.clash-card img').fadeOut(1000);
+  });
+  
+  // On after slide change
+  slideContainer.on('afterChange', function(event, slick, currentSlide) {
+    $('.slick-active').find('.clash-card img').fadeIn(200);
+  });
+  
+})();
